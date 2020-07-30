@@ -1,13 +1,17 @@
 <template>
   <div id="app">
-    <h2>dws</h2>
+    <mainTabBar></mainTabBar>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
+import mainTabBar from 'components/content/mainTabBar/MainTabBar'
 export default {
   name: "App",
-  components: {},
+  components: {
+    mainTabBar
+  }
 };
 </script>
 
