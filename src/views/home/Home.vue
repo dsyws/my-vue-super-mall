@@ -3,26 +3,30 @@
     <nav-bar class="home-nav">
       <div slot="center">购物街</div>
     </nav-bar>
-   <homeSwiper :banner="banner"></homeSwiper>
+    <homeSwiper :banners="banners"></homeSwiper>
+    <recommend-view :recommends="recommends"></recommend-view>
   </div>
 </template>
 <script>
 import navBar from "components/common/navBar/NavBar";
+import homeSwiper from "views/home/childrenComponents/HomeSwiper";
+import recommendView from "views/home/childrenComponents/Recommend";
+
 import { getHomeMultidata } from "network/home";
-import homeSwiper from 'views/home/childrenComponents/HomeSwiper'
 export default {
   name: "Home",
   data() {
-    return { banner: null, recommend: null };
+    return { banners: null, recommends: null };
   },
   components: {
     navBar,
-    homeSwiper
+    homeSwiper,
+    recommendView,
   },
   created() {
     getHomeMultidata().then((res) => {
-      this.banner = res.data.banner.list;
-      this.recommend = res.data.recommend.list;
+      this.banners = res.data.banner.list;
+      this.recommends = res.data.recommend.list;
       console.log(this.banner);
       console.log(this.recommend);
     });
