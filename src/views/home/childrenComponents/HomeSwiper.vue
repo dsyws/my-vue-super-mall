@@ -22,7 +22,7 @@ export default {
     },
   components: {
     Swiper,
-    SwiperItem
+    SwiperItem,
   },
 };
 </script>
